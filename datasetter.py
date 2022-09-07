@@ -68,9 +68,6 @@ def rightKey(event):
 
 #move images function
 def moveImages(x):
-  print('x',x)
-  print('d',len(decision))
-  print('i',len(getImages))
   if decision[x] == 0:
     shutil.move(getImages[x], './no/'+getImages[x])
   elif decision[x] == 1:
