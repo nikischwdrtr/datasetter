@@ -54,29 +54,27 @@ for x in range(len(getImages)):
 #next image and decision functions
 imgNumber = IntVar(root, value = 0)
 def leftKey(event):
-  if imgNumber.get()+1 < len(getImages):
-    imgNumber.set(imgNumber.get()+1)
-    canvas.itemconfig(imgcontainer, image=tkimg[imgNumber.get()])
   decision.append(0)
-  if len(decision) == len(getImages):
-    moveImages()
+  moveImages(imgNumber.get())
+  imgNumber.set(imgNumber.get()+1)
+  canvas.itemconfig(imgcontainer, image=tkimg[imgNumber.get()])
 def rightKey(event):
-  if imgNumber.get()+1 < len(getImages):
-    imgNumber.set(imgNumber.get()+1)
-    canvas.itemconfig(imgcontainer, image=tkimg[imgNumber.get()])
   decision.append(1)
-  if len(decision) == len(getImages):
-    moveImages()
-    
+  moveImages(imgNumber.get())
+  imgNumber.set(imgNumber.get()+1)
+  canvas.itemconfig(imgcontainer, image=tkimg[imgNumber.get()])
 
 #move images function
-def moveImages():
-  for x in range(len(getImages)):
-    if decision[x] == 0:
-      shutil.move(getImages[x], './no/'+getImages[x])
-    if decision[x] == 1:
-      shutil.move(getImages[x], './yes/'+getImages[x])
-  root.destroy()
+def moveImages(x):
+  print('x',x)
+  print('d',len(decision))
+  print('i',len(getImages))
+  if decision[x] == 0:
+    shutil.move(getImages[x], './no/'+getImages[x])
+  elif decision[x] == 1:
+    shutil.move(getImages[x], './yes/'+getImages[x])
+  if len(decision) == len(getImages):
+    root.destroy()
 
 #key bindings
 root.bind('<Left>', leftKey) 
