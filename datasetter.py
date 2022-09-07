@@ -12,13 +12,15 @@ decision = []
 
 # create new folder
 if os.path.isdir(directoryNo):
-  os.rmdir(path+directoryNo)
+  pass
+else:
+  newpathNo = os.path.join(path, directoryNo)
+  os.mkdir(newpathNo)
 if os.path.isdir(directoryYes):
-  os.rmdir(path+directoryYes)
-newpathNo = os.path.join(path, directoryNo)
-os.mkdir(newpathNo)
-newpathYes = os.path.join(path, directoryYes)
-os.mkdir(newpathYes)
+  pass
+else:
+  newpathYes = os.path.join(path, directoryYes)
+  os.mkdir(newpathYes)
 
 # get images
 for filename in os.listdir(path):
