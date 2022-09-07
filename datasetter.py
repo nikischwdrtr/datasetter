@@ -29,8 +29,8 @@ for filename in os.listdir(path):
 
 #tk settings for display image
 root = Tk()
-root.configure(bg='lightgrey')
-canvas = Canvas(root, width=1024, height=1024, bg='lightgrey', highlightthickness=0)
+root.configure(bg='black')
+canvas = Canvas(root, width=1024, height=1024, bg='black', highlightthickness=0)
 canvas.pack() 
 
 #load images
