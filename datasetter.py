@@ -29,7 +29,8 @@ for filename in os.listdir(path):
 
 #tk settings for display image
 root = Tk()
-canvas = Canvas(root, width = 1024, height = 1024)  
+root.configure(bg='lightgrey')
+canvas = Canvas(root, width=1024, height=1024, bg='lightgrey', highlightthickness=0)
 canvas.pack() 
 
 #load images
@@ -45,7 +46,7 @@ for x in range(len(getImages)):
 for x in range(len(getImages)):
   img[x] = Image.open(getImages[x])
   if img[x].size[0] > img[x].size[1]: 
-    pixelsx[x], pixelsy[x] = tuple([int(1024/img[x].size[1] * z)  for z in img[x].size])
+    pixelsx[x], pixelsy[x] = tuple([int(1024/img[x].size[0] * z)  for z in img[x].size])
   else: 
     pixelsx[x], pixelsy[x] = tuple([int(1024/img[x].size[1] * z)  for z in img[x].size])
   tkimg[x] = ImageTk.PhotoImage(img[x].resize((pixelsx[x], pixelsy[x])))  
