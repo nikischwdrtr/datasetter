@@ -44,13 +44,16 @@ for x in range(len(getImages)):
   pixelsy.append(x)
 for x in range(len(getImages)):
   img[x] = Image.open(getImages[x])
-  pixelsx[x], pixelsy[x] = tuple([int(1024/img[x].size[0] * z)  for z in img[x].size])
+  if img[x].size[0] > img[x].size[1]: 
+    pixelsx[x], pixelsy[x] = tuple([int(1024/img[x].size[1] * z)  for z in img[x].size])
+  else: 
+    pixelsx[x], pixelsy[x] = tuple([int(1024/img[x].size[1] * z)  for z in img[x].size])
   tkimg[x] = ImageTk.PhotoImage(img[x].resize((pixelsx[x], pixelsy[x])))  
 
 #next image and decision functions
 imgNumber = IntVar(root, value = 0)
 def leftKey(event):
-  if imgNumber.get() < len(getImages):
+  if imgNumber.get()+1 < len(getImages):
     imgNumber.set(imgNumber.get()+1)
     canvas.itemconfig(imgcontainer, image=tkimg[imgNumber.get()])
   decision.append(0)
@@ -79,5 +82,5 @@ root.bind('<Left>', leftKey)
 root.bind('<Right>', rightKey) 
  
 #load images
-imgcontainer = canvas.create_image(0, 0, anchor=NW, image=tkimg[imgNumber.get()]) 
+imgcontainer = canvas.create_image(512, 512, anchor=CENTER, image=tkimg[imgNumber.get()]) 
 root.mainloop() 
