@@ -15,3 +15,8 @@ run:
 2. open terminal
 3. navigate to the folder with script and images
 4. run 'python3 datasetter.py'
+
+press right key if you want the image
+press left key if you don't want the image
+
+--> creates folder yes/no based on decisions
