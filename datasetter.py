@@ -29,7 +29,7 @@ for filename in os.listdir(path):
   else:
     continue
 
-#tk settings for display image
+#tk settings
 root = Tk()
 root.configure(bg='black')
 canvas = Canvas(root, width=1024, height=1024, bg='black', highlightthickness=0)
