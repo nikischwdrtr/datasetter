@@ -1,6 +1,10 @@
 # datasetter
 
-python script for categories images
+
+<img width="1162" alt="Screenshot 2022-09-14 at 12 45 36" src="https://user-images.githubusercontent.com/40233850/190148866-ce91bea8-214b-4182-9f0b-cdb09f0cf016.png">
+
+
+python script for curating datasets
 
 istallation:
 
@@ -18,5 +22,6 @@ run:
 
 press right key if you want the image
 press left key if you don't want the image
+press space key if you want to crop the image
 
---> creates folder yes/no based on decisions
+you can always rerun the script, it will keep track of the images you already sorted
